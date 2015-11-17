@@ -2,7 +2,7 @@
 
 === Clustering Overview
 
-Clustering is a mechanism that enables multiple processes and programs to work
+Clustering is a fabulous mechanism that enables multiple processes and programs to work
 together as one entity.  For example, when you search for something on
 google.com, it may seem like your search request is processed by only one web
 server. In reality, your search request is processed by may web servers
