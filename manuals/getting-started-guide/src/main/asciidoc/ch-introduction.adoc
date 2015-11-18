@@ -1,11 +1,14 @@
 [preface]
 
 == Introduction
-The OpenDaylight (ODL) project is an open source, hardware-agnostic platform you can use to virtualize networking services, which is commonly referred to as Software-Defined Networking (SDN). ODL's centralized network controller sees all network resources and alone directs all network traffic. Applications on the ODL platform are based on a microservices architecture consisting of narrowly-focused, independently deployable services that communicate with each other using APIs. With application services decoupled and the ODL controller directing networking, your applications run at higher speeds with increased performance and scalability. 
+The OpenDaylight (ODL) project is an open source, hardware-agnostic platform you can use to virtualize networking services, which is commonly referred to as Software-Defined Networking (SDN). SDN has more than one method of implementation, and ODL's platform integrates open source, open standards, and open APIs to support SDN for a multitude of networking scenarios.
+
+ODL has a centralized network controller that oversees all network resources and alone directs all network traffic. Applications on the ODL platform are based on a microservices architecture consisting of narrowly-focused, independently deployable services that communicate with each other using ODL's open APIs. With application services decoupled and the ODL controller directing networking, your applications run at higher speeds with increased performance and scalability. 
 
 == OpenDaylight Overview
-As a collaborative, open source project, ODL's goal is to
-accelerate adoption of SDN and Network Functions Virtualization (NFV) with a transparent approach that meets your current networking needs while adapting to changes as requirements and scope evolve. You can configure OpenDaylight's common platform in numerous ways to use SDN for a multitude of networking scenarios. For example...  
+As a collaborative, open source project, ODL's goal is to accelerate adoption of SDN and Network Functions Virtualization (NFV) with a transparent approach that meets your current networking needs while adapting to changes as requirements and scope evolve. The microservices architecture allows you to control applications, protocols, and plugins and enhance your connections with external customers on the web.
+
+
 
 ODL software mainly consists of software designed to run on a
 Java Virtual Machine (JVM), and you can use it on any operating system and
