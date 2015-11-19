@@ -23,16 +23,16 @@ ODL software is designed to run on a Java Virtual Machine (JVM). The platform is
 
 //introduce and paste screenshot of ODL architecture from newer slide set. Jan Medved, slide 2.
 
-ODL uses MD-SAL architecture - a model-driven service abstraction layer - that unifies northboand and southbound APIs. Northbound APIs sit between the controller and application services, and they abstract and communicate network capabilities to define network flows for applications and implement application requests to the network relayed to it through northbound APIs. to ODL applications. Southbound APIs enable communication between the ODL controller and network virtualization protocols.  
+ODL uses MD-SAL architecture - a model-driven service abstraction layer - that unifies northboand and southbound APIs. Northbound APIs sit between the controller and application services, and they abstract and communicate network capabilities to define network flows for applications and implement application requests to the network relayed to it through northbound APIs. to ODL applications. NB APIs  abstracts the network capabilities/information and opens the abstract/logic network to applications. The northbound interface describes the area of protocol-supported communication between the controller and applications or higher layer control programs.In an enterprise data center, functions of northbound APIs include management solutions for automation and orchestration, and the sharing of actionable data between systems.
 
-OSS/BSS
+Southbound APIs enable communication between the ODL controller and network virtualization protocols.  
 
-Northbound Interface (NBI) – located between the controller and the applications/services. It abstracts the network capabilities/information and opens the abstract/logic network to applications.
+OSS/BSS??
 
 Southbound protocol
-In SDN, the southbound interface is the OpenFlow (or alternative) protocol specification. Its main function is to enable communication between the SDN controller and the network nodes (both physical and virtual switches and routers) so that the router can discover network topology, define network flows and implement requests relayed to it via northbound APIs. The northbound interface describes the area of protocol-supported communication between the controller and applications or higher layer control programs.
+In SDN, the southbound interface is the OpenFlow protocol specification. Its main function is to enable communication between the SDN controller and the network nodes (both physical and virtual switches and routers) so that the router can discover network topology, define network flows and implement requests relayed to it via northbound APIs. 
 
-In an enterprise data center, functions of northbound APIs include management solutions for automation and orchestration, and the sharing of actionable data between systems. Functions of southbound APIs include communication with the switch fabric, network virtualization protocols, or the integration of a distributed computing network
+
 
 OpenFlow is a southbound protocol. With SDN, the controller tells the switch what to do.
 OpenFlow is a controller that talks to the switch to set up a table to do the following:
