@@ -1,18 +1,22 @@
 [preface]
 
 == Introduction
-The OpenDaylight (ODL) project is an open source, hardware-agnostic platform you can use to virtualize networking services, which is commonly referred to as Software-Defined Networking (SDN). SDN has more than one method of implementation, and ODL's platform integrates open source, open standards, and open APIs to support SDN for a multitude of networking scenarios.
+The OpenDaylight (ODL) project is an open source, hardware-agnostic platform you can use to virtualize networking services, which is commonly referred to as Software-Defined Networking (SDN). ODL's platform implements SDN, integrating open source, open standards, and open APIs to support a multitude of networking scenarios. Application developers can abstract their networking needs, staying out from under the hood while ODL standards ensure software programs can interoperate and communicate clearly and quickly. 
 
-ODL has a centralized network controller that oversees all network resources and alone directs all network traffic. Applications on the ODL platform are based on a microservices architecture consisting of narrowly-focused, independently deployable services that communicate with each other using ODL's open APIs. With application services decoupled and the ODL controller directing networking, your applications run at higher speeds with increased performance and scalability. 
+As a collaborative, open source project, ODL's goal is to accelerate adoption of SDN and Network Functions Virtualization (NFV) with a transparent approach that meets your current networking needs and adapts to changes as requirements and scope evolve. The microservices architecture allows you to control applications, protocols, and plugins and enhances your connections with external customers on the web. The ODL community is comprised of contributors from across the world and has a release cadence of roughly every six months. The current Beryllium release is preceded by Lithium and Helion.  
 
-== OpenDaylight Overview
-As a collaborative, open source project, ODL's goal is to accelerate adoption of SDN and Network Functions Virtualization (NFV) with a transparent approach that meets your current networking needs while adapting to changes as requirements and scope evolve. The microservices architecture allows you to control applications, protocols, and plugins and enhance your connections with external customers on the web.
+=== The 10,000' view and what's in it for you
+To understand how the platform works at a very high level, ODL has a centralized network controller that oversees all network resources and alone directs all network traffic. Applications are based on a microservices architecture consisting of narrowly-focused, independently deployable services that communicate with each other using the platform's open APIs. With application services decoupled and the ODL controller directing networking, your applications run at higher speeds with increased performance and scalability. 
 
+Now let's take a closer look at the ODL platform. If you're already familiar with it and want to get on with the installation, skip to 
+//Installing ODL - clarify title and state it here.
 
+== OpenDaylight platform overview
+Here we cover the basics of the the ODL platform, which is based on the the Open Service Gateway Initiative (OSGi), which is a Java framework for developing and deploying modular software programs and libraries. OSGI details:
+.Supplies a specification for plugins that defines their life cycle and interactions with other plugins. 
+.OSGi is a Java Virtual Machine (JVM)-level service registry for plugins to publish, discover, and bind to services in a service-oriented architecture.
 
-ODL software mainly consists of software designed to run on a
-Java Virtual Machine (JVM), and you can use it on any operating system and
-hardware that has a Java Runtime Environment (JRE) available.
+ODL software  consists of software designed to run on a Java Virtual Machine (JVM), and you can use it on any operating system and hardware that has a Java Runtime Environment (JRE) available.
 
 // TODO: uncomment the following lines when we have them to the point we think they're useful.
 // OpenDaylight makes use of the following third-party tools:
@@ -31,6 +35,6 @@ hardware that has a Java Runtime Environment (JRE) available.
 //
 // * *Karaf*: TBD
 
-For a more detailed information about OpenDaylight, see the and _OpenDaylight User Guie_, _OpenDaylight
+For a more detailed information about OpenDaylight, see the and _OpenDaylight User Guide_, _OpenDaylight
 Developer Guide_.
 
