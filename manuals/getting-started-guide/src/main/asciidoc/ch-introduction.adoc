@@ -12,9 +12,10 @@ Now let's take a closer look at the ODL platform. If you're already familiar wit
 //Installing ODL - clarify title and state it here.
 
 == OpenDaylight platform overview
-Here we cover the basics of the the ODL platform, which is based on the the Open Service Gateway Initiative (OSGi), which is a Java framework for developing and deploying modular software programs and libraries. OSGI details:
-.Supplies a specification for plugins that defines their life cycle and interactions with other plugins. 
-.OSGi is a Java Virtual Machine (JVM)-level service registry for plugins to publish, discover, and bind to services in a service-oriented architecture.
+Here we cover the basics of the the ODL platform, which is based on the the Open Service Gateway Initiative (OSGi). OSGi  is a Java framework for developing and deploying modular software programs and libraries. OSGI details:
+.Bulleted
+*Supplies a specification for plugins that defines their life cycle and interactions with other plugins. 
+*OSGi is a Java Virtual Machine (JVM)-level service registry for plugins to publish, discover, and bind to services in a service-oriented architecture.
 
 ODL software  consists of software designed to run on a Java Virtual Machine (JVM), and you can use it on any operating system and hardware that has a Java Runtime Environment (JRE) available.
 
