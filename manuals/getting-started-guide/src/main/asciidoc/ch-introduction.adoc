@@ -1,19 +1,21 @@
  [preface]
 
 == Introduction
-The OpenDaylight (ODL) project is an open source, hardware-agnostic platform you can use to virtualize networking services based on your application's requirements, which is commonly referred to as Software-Defined Networking (SDN). In SDN the applications communicate their operating needs to a centralized controller, which oversees everything in the nework. The controller alone directs all network communication based on component availability so your applications run at higher speeds with increased performance and scalability. 
+The OpenDaylight (ODL) project is an open source, hardware-agnostic platform you can use to virtualize networking services based on your application's requirements, which is commonly referred to as Software-Defined Networking (SDN). In SDN the applications communicate their operating needs via APIs to a centralized controller, which oversees everything in the network. The controller alone directs all network communication based on component availability so your applications run at higher speeds with increased performance and scalability. 
 
 When you deploy new applications in a traditional environment, engineers often have to modify the entire network to ensure ample and accurate resources to accommodate changes. For example, introducing virtual machines (VMs) increases datacenter network complexity and requires a high touch approach to ensure components still play together as required after any additions or changes. Switches can see only the switches directly next to them so don't have a comprehensive understanding of the network. With this limited information, the switches control all routing but far less efficiently because they can't see all the resources available to move traffic through the network. 
 
-As a collaborative, open source project ODL's goal is to integrating open standards and open APIs to support a multitude of networking scenarios, accelerating adoption of SDN and Network Functions Virtualization (NFV). ODL's transparent approach works for your current networking needs and adapts to accommodate changes as application requirements and scope evolve. Because you can use SDN for a multitude of networking scenarios, OpenDaylight's common platform can be configured in any number of ways to solve network challenges. 
+=== OpenDaylight goal
+As a collaborative, open source project ODL's goal is to integrate open standards and open APIs to support a multitude of networking scenarios, accelerating adoption of SDN and Network Functions Virtualization (NFV). ODL's transparent approach works for your current networking needs and adapts to accommodate changes as application requirements and scope evolve. You can configure ODL's common platform in multiple ways to fit specific networking scenarios.
 
 === Who is this guide for and what's in it?
-This document is those considering or already using ODL, including end-users as well as developers and potential contributors to the project. ODL is supported by a global community and has a release cadence of roughly every six months, with the current Beryllium release preceded by Hydrogen, Helium, and Lithium, the first, second, and third releases, respectively.
+This document is for those considering or already using ODL, including IT decision-makers and end-users as well as developers and contributors to the project. ODL is supported by a global community and has a release cadence of roughly every six months, with the current Beryllium release preceded by Lithium, Helium, and the first release Hydrogen.
 
-In this Getting Started Guide we explain the basics of ODL's architecture and components and provide installation instructions. ODL has more than 50 projects under its auspices that address different networking requirements you may have and methods to execute against them. This document provides expanded explanations and use cases for several projects, including ones that are important for using OpenDaylight with OpenStack. As part of an ongoing effort, ODL is working to provide more use cases and case studies in the near future. For projects not covered here, we provide links to development documentation on the ODL wiki.
+In this Getting Started Guide we explain the basics of ODL's architecture and components and provide installation instructions. ODL has more than 50 projects under its auspices that address specific networking requirements you may have and methods to execute against them. This document provides expanded explanations and use cases for several projects, including ones that are important for using OpenDaylight with OpenStack. As part of an ongoing effort, ODL is working to provide more use cases and case studies in the near future. For projects not covered here, we provide links to development documentation on the ODL wiki.
+
+//list all projects with updated documentation in this release. We are targeting OpenFlow, BCP-PCEP, AAA, Group-based policy, NIC, OpenStack Integration (Net-virt), OVSDB,VTN, Service Function Chaining.
 
 This document contains:
-
 .  OpenDaylight overview and architecture
 . Installing OpenDaylight
 .. Target environment
@@ -26,47 +28,26 @@ This document contains:
 ... MD-SAL clustering
 . OpenDaylight projects and how to use them
 
-//list all projects with updated documentation in this release. We are targeting OpenFlow, BCP-PCEP, AAA, Group-based policy, NIC, OpenStack Integration (Net-virt), OVSDB,VTN, Service Function Chaining.
-
-== OpenDaylight Overview
-Applications on the ODL platform are based on a microservices architecture consisting of narrowly-focused, independently deployable services that communicate with each other using APIs. With application services decoupled and the ODL controller directing networking, your applications run at higher speeds with increased performance and scalability.
-ODLUsing ODL and its open APIs, application developers can abstract their networking needs, staying out from under the hood while ODL ensures software programs can interoperate and communicate clearly and quickly. With application services decoupled and the ODL controller directing all networking, your applications run at higher speeds with increased performance and scalability.
-
-SDN decouples the controle plane
-
-
-
-One example of an end-user who wants to get started with ODL could be a web provider that sells goods and services. The company's legacy network system may not be able to handle growth in customers, transactions, inventory, and customer service needs so it wants to try SDN to accommodate expansion. 
-
-
-
- 
-Other end-users may want to
-
-///create some other basic use cases. Ask Colin/Casey for something simple but widely needed/used.
-
-//1. Case study – high-level of user doing something with ODL or SDN controller, e.g., provision routes across WAN.2. User Story/Study – what features need to be in ODL controller to allow participants to get something done. Gets into what is functionality and interface for ODL to exist.3. Case studies, e.g., how ATT is using OpenDaylight. More for User Guide but could use simple example here.
-
-//ODL there is no big picture. Ex: A customer with a legacy network wants to make it possible to manage. Or there is a customer who wants to use OpenFlow and that’s all he wants to use. Or someone wants to use OpenStack with ODL.
-
-
-
-
 == OpenDaylight overview and architecture
-
 Here we take a closer look at ODL and its architecture. If you're already familiar with it and want to get on with installation, skip to Installing OpenDaylight.
 
 //Installing ODL - clarify chapter title and state it above.
 
+=== Application and controller basics
+Applications on the ODL platform are based on a microservices architecture consisting of narrowly-focused, independently deployable services that communicate with each other using APIs. ODL is efficienct and easily adaptable because application services are decoupled and the ODL controller alone directs all networking. Application developers abstract their networking needs with open APIs while the ODL platform ensures software programs can interoperate and communicate clearly and quickly.
 
+One example of an end-user who wants to get started with ODL could be a web provider that sells goods and services. The company's legacy network system may not be able to handle growth in customers, transactions, inventory, and customer service needs so it wants to try SDN to accommodate expansion. 
+
+//Jan-Simon suggested using an OpenStack use case above. I need someone with more technical knowledge to help with that. Colin? Follow up with Colin.
+
+//create some other basic use cases. Ask Colin/Casey for something simple but widely needed/used.
+
+//1. Case study – high-level of user doing something with ODL or SDN controller, e.g., provision routes across WAN.2. User Story/Study – what features need to be in ODL controller to allow participants to get something done. Gets into what is functionality and interface for ODL to exist.3. Case studies, e.g., how ATT is using OpenDaylight. More for User Guide but could use simple example here.
 
 === Running environment
-ODL software is designed to run on a Java Virtual Machine (JVM). The platform is  based on the the Open Service Gateway Initiative (OSGi), which is a JVM service registry that provides a specification for ODL plugins, defining their lifecycle and how they interact with each other. Plugins use the JVM to publish, discover, and bind services in a service-oriented architecture (SOA). You can can use ODL on any operating system and hardware that has a Java Runtime Environment (JRE).
+ODL software is designed to run on a Java Virtual Machine (JVM). The platform is based on the the Open Service Gateway Initiative (OSGi) whose JVM service registry provides a specification for ODL plugins, defining their lifecycle and how they interact with each other. Plugins use the JVM to publish, discover, and bind services in a service-oriented architecture (SOA). You can can use ODL on any operating system and hardware that has a Java Runtime Environment (JRE).
 
-===Application and controller basics
-Based on a microservices architecture, ODL applications consist of narrowly-focused, independently deployable services that communicate with each other using ODL's APIs, which allow you to control applications, protocols, and plugins. ODL's  centralized network controller oversees all network resources and alone directs all network traffic.  
-
-===The OpenDaylight architecture
+=== OpenDaylight architecture
 Figure 1 displays the ODL architecture.
 
 //introduce and paste screenshot of ODL architecture from newer slide set. Jan Medved, slide 4. 
@@ -86,7 +67,7 @@ BSS enables operators to manage accounts and payments, customer support, service
 
 Applications and services in Figure 1 include the following:
 .NETCONF client, which provides mechanisms to install, manipulate, and delete the configuration of network devices using remote procedure calls (RPCs). The NETCONF protocol uses XML-based encoding to configure data and messages.
-.APIs that provide a set of routines, protocols, and tools to build software applications for ODL. Developers use APIs to specify how software components should interact and free the developer from networking details and "getting under the hood."
+.APIs that provide a set of routines, protocols, and tools to build software applications for ODL. Developers use APIs to specify how software components should interact and free the developer from network administration.
 
 //Colin - let's talk about this explanation. I want to clarify it. Thanks!
 
