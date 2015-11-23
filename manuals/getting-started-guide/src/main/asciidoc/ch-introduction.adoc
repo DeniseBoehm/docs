@@ -15,9 +15,9 @@ In this Getting Started Guide we explain the basics of ODL's architecture and co
 
 //list all projects with updated documentation in this release. We are targeting OpenFlow, BCP-PCEP, AAA, Group-based policy, NIC, OpenStack Integration (Net-virt), OVSDB,VTN, Service Function Chaining.
 
-This document contains:
-.OpenDaylight overview and architecture
-.Installing OpenDaylight
+.This document contains:
+* OpenDaylight overview and architecture
+* Installing OpenDaylight
 - Target environment
 - Known issues and limitations
 - Download and install
@@ -26,7 +26,7 @@ This document contains:
 * Support for REST APIs
 * DXLUX web interface
 * MD-SAL clustering
-.OpenDaylight projects and how to use them
+* OpenDaylight projects and how to use them
 
 == OpenDaylight overview and architecture
 Here we take a closer look at ODL and its architecture. If you're already familiar with it and want to get on with installation, skip to Installing OpenDaylight.
