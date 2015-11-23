@@ -20,27 +20,18 @@ In this Getting Started Guide we explain the basics of ODL's architecture and co
 * Installing OpenDaylight
 - Target environment
 - Known issues and limitations
-- Download and install
-* OpenDaylight Beryllium
-* Components
-* Support for REST APIs
-* DXLUX web interface
-* MD-SAL clustering
+* Download and install
+- OpenDaylight Beryllium
+- Components
+- Support for REST APIs
+- DXLUX web interface
+- MD-SAL clustering
 * OpenDaylight projects and how to use them
 
 == OpenDaylight overview and architecture
 Here we take a closer look at ODL and its architecture. If you're already familiar with it and want to get on with installation, skip to Installing OpenDaylight.
 
-//Installing ODL - clarify chapter title and state it above.
-
-=== Application and controller basics
-Applications on the ODL platform are based on a microservices architecture consisting of narrowly-focused, independently deployable services that communicate with each other using APIs. ODL is efficienct and easily adaptable because application services are decoupled and the ODL controller alone directs all networking. Application developers abstract their networking needs with open APIs while the ODL platform ensures software programs can interoperate and communicate clearly and quickly.
-
-//Jan-Simon suggested using an OpenStack use case above. I need someone with more technical knowledge to help with that. Colin? Follow up with Colin.
-
-//create some other basic use cases. Ask Colin/Casey for something simple but widely needed/used.
-
-//1. Case study – high-level of user doing something with ODL or SDN controller, e.g., provision routes across WAN.2. User Story/Study – what features need to be in ODL controller to allow participants to get something done. Gets into what is functionality and interface for ODL to exist.3. Case studies, e.g., how ATT is using OpenDaylight. More for User Guide but could use simple example here.
+//Verify chapter title in sentence above after edits made.
 
 === Running environment
 ODL software is designed to run on a Java Virtual Machine (JVM). The platform is based on the the Open Service Gateway Initiative (OSGi) whose JVM service registry provides a specification for ODL plugins, defining their lifecycle and how they interact with each other. Plugins use the JVM to publish, discover, and bind services in a service-oriented architecture (SOA). You can can use ODL on any operating system and hardware that has a Java Runtime Environment (JRE).
@@ -48,8 +39,52 @@ ODL software is designed to run on a Java Virtual Machine (JVM). The platform is
 === OpenDaylight architecture
 Figure 1 displays the ODL architecture.
 
-//introduce and paste screenshot of ODL architecture from newer slide set. Jan Medved, slide 4. 
+//introduce and paste screenshot of ODL architecture from newer slide set. Jan Medved, slide 4.
 
+=== Network devices, Operating Support Systems , and Business Support Systems 
+To give a user perspective we start with network devices, Operating Support Systems (OSS), and Business Support Systems (BSS) that sit on top of the ODL architecture. OSS assembles services and helps operators build and optimize the network. BSS allows operators to manage accounts and payments, customer support,and service modification. 
+
+An ODL user could be a web provider that sells goods and services dependent on a legacy network system unable to handle growth in customers, transactions, inventory, and customer service. Using ODL, the user is able to accommodate expansion.  
+
+.OSS functions expedite: 
+* Video streaming 
+* Chatting online
+* Using an application, and so on
+
+.BSS functions expedite: 
+* Pre-paying an account
+* Paying bills
+* Buying and activating a new device
+* Contacting customer service, and so on
+
+
+
+
+ 
+
+=== Application and controller basics
+Applications on the ODL platform are based on a microservices architecture consisting of narrowly-focused, independently deployable services that communicate with each other using open APIs. ODL is efficienct and easily adaptable because application services are decoupled and the ODL controller alone directs all networking. Application developers abstract their networking needs with open APIs while the ODL platform ensures software programs can interoperate and communicate clearly and quickly.
+
+//Jan-Simon suggested using an OpenStack use case above. I need someone with more technical knowledge to help with that. Colin? Follow up with Colin.
+
+//create some other basic use cases. Ask Colin/Casey for something simple but widely needed/used.
+
+//1. Case study – high-level of user doing something with ODL or SDN controller, e.g., provision routes across WAN.2. User Story/Study – what features need to be in ODL controller to allow participants to get something done. Gets into what is functionality and interface for ODL to exist.3. Case studies, e.g., how ATT is using OpenDaylight. More for User Guide but could use simple example here.
+
+
+
+
+
+==== Applications and services
+NETCONF client provides mechanisms to install, manipulate, and delete the configuration of network devices using remote procedure calls (RPCs). The NETCONF protocol uses XML-based encoding to configure data and messages.
+.APIs that provide a set of routines, protocols, and tools to build software applications for ODL. Developers use APIs to specify how software components should interact and free the developer from network administration.
+
+//Colin - let's talk about this explanation. I want to clarify it. Thanks!
+
+.Applications users want to run on ODL.
+.REST on top of an application, which is used to build lightweight, mantainable, and scalable web services.
+//Need help to clarify this.
+.RESTCONF 
 At the core of ODL is a model-drive service abstraction layer (MD-SAL). It unifies northbound  and southbound APIs and data structures for the controller's services and components. 
 
 YANG [1] is a data modeling language for the NETCONF network configuration protocol. The name is an acronym for "Yet Another Next Generation". The YANG data modeling language was developed by the NETMOD [2] working group in the Internet Engineering Task Force (IETF) and was published as RFC 6020 in October 2010. The data modeling language can be used to model both configuration data as well as state data of network elements. Furthermore, YANG can be used to define the format of event notifications emitted by network elements and it allows data modelers to define the signature of remote procedure calls that can be invoked on network elements via the NETCONF protocol.
@@ -71,30 +106,6 @@ YANG provides a structured representation (a tree) of the document and it define
 Though often accessed using JavaScript, the DOM itself is not a part of the JavaScript language, and it can be accessed by other languages, though this is much less common.
 
 
-ADL is We start from a user perspective at the top of ODL, with network devices, Operating Support Systems (OSS), and Business Support Systems (BSS). An example of an ODL user who would want these services could be a web provider that sells goods and services. The company's legacy network system may not be able to handle growth in customers, transactions, inventory, and customer service needs so it goes with ODL to accommodate expansion. OSS assembles services and helps operators build and optimize the network, with functions that enable:
-
-.Watching a video
-.Chatting online
-.Using an application 
-
-BSS enables operators to manage accounts and payments, customer support, service modification, and so on. Examples of BSS-enabled functions are: 
-.Pre-paying an account
-.Paying bills
-.Buying and activating a new device
-.Contacting customer service
-
-
-
-Applications and services in Figure 1 include the following:
-.NETCONF client, which provides mechanisms to install, manipulate, and delete the configuration of network devices using remote procedure calls (RPCs). The NETCONF protocol uses XML-based encoding to configure data and messages.
-.APIs that provide a set of routines, protocols, and tools to build software applications for ODL. Developers use APIs to specify how software components should interact and free the developer from network administration.
-
-//Colin - let's talk about this explanation. I want to clarify it. Thanks!
-
-.Applications users want to run on ODL.
-.REST on top of an application, which is used to build lightweight, mantainable, and scalable web services.
-//Need help to clarify this.
-.RESTCONF 
 
 
 FigureIn the middle of the figure above, you see that the "Controller Core," which in ODL is a model-driven service abstraction layer (MD-SAL) architecture that unifies northboand and southbound APIs. Northbound APIs sit between the controller and application services, and they abstract and communicate network capabilities to define network flows for applications and implement application requests to the network relayed to it through northbound APIs. to ODL applications. NB APIs  abstracts the network capabilities/information and opens the abstract/logic network to applications. The northbound interface describes the area of protocol-supported communication between the controller and applications or higher layer control programs.In an enterprise data center, functions of northbound APIs include management solutions for automation and orchestration, and the sharing of actionable data between systems.
