@@ -78,6 +78,7 @@ You can define additional capabilities to extend basic NETCONF functionality to 
 
 Data and messages in the protocol are configured with XML-based encoding. 
 
+//Everything from here down is being HEAVILY edited and reorganized. Read with the proviso that I know it isn't at all done. OR don't read, and I will provide an update on Tuesday.
 ==== MD-SAL 
 At the core of ODL is a model-drive service abstraction layer (MD-SAL). It unifies northbound  and southbound APIs and data structures for the controller's services and components. 
 
