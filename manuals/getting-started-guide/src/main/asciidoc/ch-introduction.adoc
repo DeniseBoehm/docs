@@ -123,13 +123,6 @@ The controller can limit traffic through particular switches when it sees conges
 ●	Ability to combine multiple services and protocols to solve more complex problems as needs arise
 ●	Modular design allows anyone in the ODL ecosystem to leverage services created by others 
 
-
-
-
-
-
-
-
 // TODO: uncomment the following lines when we have them to the point we think they're useful.
 // OpenDaylight makes use of the following third-party tools:
 //
