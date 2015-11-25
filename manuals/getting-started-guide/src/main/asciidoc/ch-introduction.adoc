@@ -42,7 +42,7 @@ Figure 1 displays the ODL architecture, the components of which we  address in t
 
 //introduce and paste screenshot of ODL architecture from newer slide set. Jan Medved, slide 4. Is this the slide we should use here?
 
-=== Network devices, Operating Support Systems,  Business Support Systems, and external applications 
+==== Network devices, Operating Support Systems,  Business Support Systems, and external applications 
 For context as we proceed with the following explanations, an example of an ODL user could be a web provider that sells goods and services dependent on a legacy network system unable to handle growth in customers, transactions, inventory, and customer service. Using ODL, that user can implement open APIs in programs within ODL to specify networking requirements without having to configure the network. _clarify with Colin_
 
 //Jan-Simon suggested using an OpenStack use case above. I need someone with more technical knowledge to help with that. Colin? Follow up with Colin.
@@ -62,51 +62,48 @@ Network devices, Operating Support Systems (OSS), and Business Support Systems (
 * Buying and activating a new device
 * Contacting customer service, and so on
 
-=== Applications/services
+==== OpenDaylight applications/services and protocols 
 At this level of the architecture, ODL hosts your applications _give more detail here and differentiate between what's on top of ODL and the applications within it_. 
 
-==== Microservices architecture
-Applications on the ODL platform are based on a microservices architecture that consists of narrowly-focused, independently deployable services that communicate with each other using open APIs. 
+In the following subsections, we take a look at the architectures and protocols used in the ODL platform and how they come together to enable your applications in an SDN environment. 
+//screen shot of this ODL layer. 
 
-The open APIs provide a set of routines, protocols, and tools for your ODL software applications, specifying how software components should interact. The APIs allow the developer to abstract networking requirements, while ensuring the program can interoperate and communicate clearly and quickly without need of manual network modifications. 
+===== Microservices architecture and open APIs
+Applications on the ODL platform are based on a microservices architecture that consists of narrowly-focused, independently deployable services that communicate with each other using open _REST???_ APIs. _If so, put REST section above Microservices section_ 
 
-==== NETCONF protocol
-The NETCONF protocol that sits on the same level of the ODL architecture as applications provides network management capabilities and supports complex network configuration changes involving multiple devices, with operations on top of a remote procedure call (RPC). The protocol enables changes with mechanisms that install, manipulate, and delete the configuration of network devices. Data and messages in the protocol are configured with XML-based encoding. 
+The open APIs provide applications with a set of routines, protocols, and tools that specify how software components should interact. The APIs allow the developer to abstract networking requirements while ensuring the program can interoperate and communicate clearly and quickly without need of manual network modifications. 
 
-You can define additional capabilities to extend NETCONF functionality to support more features. The NETCONF server and client communicate the new protocol capabilities for an enhanced implementation during session setup. 
+===== REST/RESTful and REST APIs
+Representational State Transfer (REST) is the software architecture of the World Wide Web. Your applications in ODL run with REST on top, allowing you to build lightweight, maintainable, scalable web services. A service based on REST is referred to as RESTful. Most REST APIs in ODL are defined using YANG tools. _I'm trying to build a logical sequence of components and how they work together, but I need help with YANG to explain how it is used for both the NETCONF protocol and REST. Could I say, "YANG is also the data modeling language for the NETCONF configuration protocol, which we explain below," or does this stuff interact in a way I'm not expressing here?_
 
-//Everything from here down is being HEAVILY edited and reorganized. Read with the proviso that I know it isn't at all done. OR don't read, and I will provide an update on Tuesday.
+====== Modeling data for web consumption _can I say this?_
+Your applications need to define and model data for appropriate web presentation. A document object model (DOM) specifies how objects such as text, images, headers, and links are represented on the web, dynamically changing the appearance of web pages after they have been downloaded to a user's browser. 
+
+ODL's DOM is Yet Another Next Generation (YANG), which is a modular data modeling language based on XML that acts as the programming interface for HTML, XML, and SVG documents. YANG provides a representation of a document as a structured group of nodes and objects (a tree) that have properties and methods for connecting web pages to scripts or programming languages. YANG defines how applications access the tree so they can modify the document, structure, style, and content. _Is this whole paragraph accurate and descriptive enough? Not redundant?_   
+
+===== NETCONF protocol
+The NETCONF protocol provides network management and supports complex network configuration changes with mechanisms that install, manipulate, and delete the configuration of network devices. Its operations run on top of a remote procedure call (RPC), which allows a program on one computer to execute a program on another. YANG is the data modeling language for NETCONF.
+
+You can define additional capabilities to extend NETCONF functionality to support more network management features. The NETCONF server and client communicate the new capabilities for an enhanced implementation during session setup. _Should I keep this paragraph? Maybe for User Guide with more explanation?_
+
+NETCONFmodels both configuration data as well as state data of network elements. 
+//Are the APIs  talking to NETCONF to get the required networking needs for the app established?
+
+// * *JAVA interfaces*: Java interfaces are usually generated by compiling the YANG project. Java interfaces are used for event listening, specifications, and forming patterns. This is the main way in which specific bundles implement call-back functions for events and also to indicate awareness of specific state.
+
 ==== MD-SAL 
 At the core of ODL is a model-drive service abstraction layer (MD-SAL). It unifies northbound  and southbound APIs and data structures for the controller's services and components. 
 
-Yet Another Next Generation (YANG) is a modular data modeling language for the NETCONF network configuration protocol. It models both configuration data as well as state data of network elements. 
-
-.It allows:
-* Modeling the structure of XML data and functionality provided by controller components
-* Defining semantic elements and their relationships
-* Modeling all the components as a single system
-* Self-describing data, because YANG is based on XML, which the controller's northbound APIs can consume in a raw format, along with the data’s schema
+The "Controller Core," which in ODL is a model-driven service abstraction layer (MD-SAL) architecture that unifies northboand and southbound APIs. Northbound APIs sit between the controller and application services, and they abstract and communicate network capabilities to define network flows for applications and implement application requests to the network relayed to it through northbound APIs. to ODL applications. NB APIs  abstracts the network capabilities/information and opens the abstract/logic network to applications. The northbound interface describes the area of protocol-supported communication between the controller and applications or higher layer control programs.In an enterprise data center, functions of northbound APIs include management solutions for automation and orchestration, and the sharing of actionable data between systems.
 
 Utilizing a schema language simplifies development of controller components and applications. A developer of a module that provides some functionality (a service, data, and functions/procedure) can define a schema and thus create simpler, statically typed APIs for the provided functionality, and thereby lower the risk of incorrect interpretation of data structures exposed through the Service Abstraction Layer.
 
-DOM – a document object model – a tree structure. A DOM is the specification for how objects in a Web page (text, images, headers, links, etc.) are represented. The DOM defines what attributes are associated with each object, and how the objects and attributes can be manipulated. Dynamic HTML (DHTML) relies on the DOM to dynamically change the appearance of Web pages after they have been downloaded to a user's browser.
-The DOM in ODL is YANG. It a programming interface for HTML, XML and SVG documents (SVG - Scalable Vector Graphics – is an XML-based vector image format for two-dimensional graphics with support for interactivity and animation.) 
-YANG provides a structured representation (a tree) of the document and it defines a way programs can access the structure so that they can change the document structure, style and content. YANG provides a representation of the document as a structured group of nodes and objects that have properties and methods. Nodes can also have event handlers attached to them, and once that event is triggered the event handlers get executed. Essentially, it connects web pages to scripts or programming languages.
-Though often accessed using JavaScript, the DOM itself is not a part of the JavaScript language, and it can be accessed by other languages, though this is much less common.
-
-.REST on top of an application, which is used to build lightweight, mantainable, and scalable web services.
-//Need help to clarify this.
-.RESTCONF 
-
-
-FigureIn the middle of the figure above, you see that the "Controller Core," which in ODL is a model-driven service abstraction layer (MD-SAL) architecture that unifies northboand and southbound APIs. Northbound APIs sit between the controller and application services, and they abstract and communicate network capabilities to define network flows for applications and implement application requests to the network relayed to it through northbound APIs. to ODL applications. NB APIs  abstracts the network capabilities/information and opens the abstract/logic network to applications. The northbound interface describes the area of protocol-supported communication between the controller and applications or higher layer control programs.In an enterprise data center, functions of northbound APIs include management solutions for automation and orchestration, and the sharing of actionable data between systems.
+because YANG is based on XML, which the controller's northbound APIs can consume in a raw format, along with the data’s schema
 
 Southbound APIs enable communication between the ODL controller and network virtualization protocols.  
 
 Southbound protocol
 In SDN, the southbound interface is the OpenFlow protocol specification. Its main function is to enable communication between the SDN controller and the network nodes (both physical and virtual switches and routers) so that the router can discover network topology, define network flows and implement requests relayed to it via northbound APIs. 
-
-
 
 OpenFlow is a southbound protocol. With SDN, the controller tells the switch what to do.
 OpenFlow is a controller that talks to the switch to set up a table to do the following:
