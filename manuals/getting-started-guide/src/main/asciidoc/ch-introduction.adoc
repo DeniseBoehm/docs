@@ -1,12 +1,12 @@
  [preface]
 
 == Introduction
-The OpenDaylight (ODL) project is an open source, hardware-agnostic platform you can use to virtualize networking services based on your application's requirements, which is commonly referred to as Software-Defined Networking (SDN). In SDN the applications communicate their operating needs via APIs to a centralized controller, which oversees everything in the network. The controller alone directs all network communication based on component availability so your applications run at higher speeds with increased performance and scalability. 
+The OpenDaylight (ODL) project is an open source, hardware-agnostic platform you can use to virtualize networking services based on your application's requirements, which is commonly referred to as Software-Defined Networking (SDN). In SDN the applications communicate their operating needs via APIs to a centralized controller, which oversees everything in the network. The controller, which can see the entire network, alone directs all network communication based on component availability so your applications run at higher speeds with increased performance and scalability. 
 
-When you deploy new applications in a traditional environment, you often have to modify the entire network to ensure ample and accurate resources to accommodate changes. For example, introducing virtual machines (VMs) increases datacenter network complexity and requires a high touch approach to ensure components still play together as required after any additions or changes. Switches can see only the switches directly next to them so don't have a comprehensive understanding of the network. With this limited information, the switches control all routing but far less efficiently because they can't see all the resources available to move traffic through the network. 
+When you deploy new applications in a traditional environment, you often have to modify the entire network to ensure ample and accurate resources to accommodate changes. For example, introducing virtual machines (VMs) increases datacenter network complexity and requires a high touch approach to ensure components still play together as required after any additions or changes. Switches can see only the switches directly next to them so don't have a comprehensive understanding of the network. With this limited information the switches control all routing, but far less efficiently because they can't see all the resources available to move traffic through the network. 
 
 === OpenDaylight goal
-As a collaborative, open source project ODL's goal is to integrate open standards and open APIs to support a multitude of networking scenarios, accelerating adoption of SDN and Network Functions Virtualization (NFV). ODL's transparent approach works for your current networking needs and adapts to accommodate changes as application requirements and scope evolve. 
+As a collaborative open source project, ODL's goal is to integrate open standards and open APIs to support a multitude of networking scenarios, accelerating adoption of SDN and Network Functions Virtualization (NFV). Closely related to SDN's virtualized networking services, NFV virtualizes core networking functions via software as opposed to using hardware, creating building blocks of network node functions that can chain together to create communication services. ODL's transparent SDN approach can meet your current networking needs and adapt to accommodate changes as application requirements and scope evolve. 
 
 === Who should read this guide and what's in it?
 The Getting Started Guide  is for those considering or already using ODL, including IT decision-makers and end-users as well as developers and contributors to the project. ODL is supported by a global community and has a release cadence of roughly every six months, with the current Beryllium release preceded by Lithium, Helium, and the first release, Hydrogen.
@@ -43,14 +43,13 @@ Figure 1 displays the ODL architecture, the components of which we  address in t
 //introduce and paste screenshot of ODL architecture from newer slide set. Jan Medved, slide 4. Is this the slide we should use here?
 
 === Network devices, Operating Support Systems,  Business Support Systems, and external applications 
-To give a user perspective, we start with network devices, Operating Support Systems (OSS), and Business Support Systems (BSS) that sit on top of the ODL architecture. OSS assembles services and helps operators build and optimize the network. BSS allows operators to manage accounts and payments, customer support,and service modification. External applications are...
-
 For context as we proceed with the following explanations, an example of an ODL user could be a web provider that sells goods and services dependent on a legacy network system unable to handle growth in customers, transactions, inventory, and customer service. Using ODL, that user can implement open APIs in programs within ODL to specify networking requirements without having to configure the network. _clarify with Colin_
-
 
 //Jan-Simon suggested using an OpenStack use case above. I need someone with more technical knowledge to help with that. Colin? Follow up with Colin.
 
 //1. Case study – high-level of user doing something with ODL or SDN controller, e.g., provision routes across WAN.2. User Story/Study – what features need to be in ODL controller to allow participants to get something done. Gets into what is functionality and interface for ODL to exist.3. Case studies, e.g., how ATT is using OpenDaylight. More for User Guide but could use simple example here.
+
+Network devices, Operating Support Systems (OSS), and Business Support Systems (BSS) sit on top of the ODL architecture. OSS assembles services, and BSS allows operators to manage accounts and payments, customer support, and service modification. External applications are...
 
 .OSS functions expedite: 
 * Video streaming 
@@ -64,19 +63,17 @@ For context as we proceed with the following explanations, an example of an ODL 
 * Contacting customer service, and so on
 
 === Applications/services
-At this level, ODL hosts your applications _give more detail here and differentiate between what's on top of ODL and the applications within it_. 
+At this level of the architecture, ODL hosts your applications _give more detail here and differentiate between what's on top of ODL and the applications within it_. 
 
 ==== Microservices architecture
-Applications on the ODL platform are based on a microservices architecture consisting of narrowly-focused, independently deployable services that communicate with each other using open APIs. 
+Applications on the ODL platform are based on a microservices architecture that consists of narrowly-focused, independently deployable services that communicate with each other using open APIs. 
 
-Open APIs provide a set of routines, protocols, and tools for your ODL software applications, specifying how software components should interact. The APIs allow the developer to abstract networking requirements, while ensuring the program can interoperate and communicate clearly and quickly without need of manual network modifications. 
+The open APIs provide a set of routines, protocols, and tools for your ODL software applications, specifying how software components should interact. The APIs allow the developer to abstract networking requirements, while ensuring the program can interoperate and communicate clearly and quickly without need of manual network modifications. 
 
 ==== NETCONF protocol
-The NETCONF protocol on the ODL platform alongside applications provides network management capabilities and supports complex network configuration changes involving multiple devices, with operations on top of a remote procedure call (RPC). The protocol enables changes with mechanisms that install, manipulate, and delete the configuration of network devices.
+The NETCONF protocol that sits on the same level of the ODL architecture as applications provides network management capabilities and supports complex network configuration changes involving multiple devices, with operations on top of a remote procedure call (RPC). The protocol enables changes with mechanisms that install, manipulate, and delete the configuration of network devices. Data and messages in the protocol are configured with XML-based encoding. 
 
-You can define additional capabilities to extend basic NETCONF functionality to support more features. The NETCONF server and client communicate the new protocol capabilities for an enhanced implementation during session setup. 
-
-Data and messages in the protocol are configured with XML-based encoding. 
+You can define additional capabilities to extend NETCONF functionality to support more features. The NETCONF server and client communicate the new protocol capabilities for an enhanced implementation during session setup. 
 
 //Everything from here down is being HEAVILY edited and reorganized. Read with the proviso that I know it isn't at all done. OR don't read, and I will provide an update on Tuesday.
 ==== MD-SAL 
