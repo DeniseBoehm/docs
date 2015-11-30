@@ -1,9 +1,15 @@
  [preface]
 
 == Introduction
-The OpenDaylight (ODL) project is an open source, hardware-agnostic platform you can use to virtualize networking services based on your application's requirements, which is commonly referred to as Software-Defined Networking (SDN). In SDN the applications communicate their operating needs via APIs to a centralized controller, which oversees everything in the network. The controller, which can see the entire network, alone directs all network communication based on component availability so your applications run at higher speeds with increased performance and scalability. 
+The OpenDaylight (ODL) project is an open source, hardware-agnostic platform you can use to virtualize networking services based on your application's requirements, which is commonly referred to as Software-Defined Networking (SDN). 
+In SDN the applications communicate their operating needs via APIs to a centralized controller, which oversees everything in the network. The controller, which can see the entire network, alone directs all network communication based on component availability so your applications run at higher speeds with increased performance and scalability. 
+
+_Talk about 50000' idea. Does so many different things. Figure out way to hint at other capabilities. Colin would say ODL is a platform that tries to expose as much of capabilities of the networking elements physical and virtual to app developers as possible. Incredible diversity. Expose as much to developers as easily as possible. For network devices. Capture the diversity of what ODL does at the same time as being specific enough to understand what it does. Be careful not to say things that give preference to certain projects. Give overview of ODL architecture. Apps on top, etc. Two comments. 1. Call out that apps are on top that have APIs, etc., 2. Second sentence is a preconceived notion_
+It's a broad goal. examples...
 
 When you deploy new applications in a traditional environment, you often have to modify the entire network to ensure ample and accurate resources to accommodate changes. For example, introducing virtual machines (VMs) increases datacenter network complexity and requires a high touch approach to ensure components still play together as required after any additions or changes. Switches can see only the switches directly next to them so don't have a comprehensive understanding of the network. With this limited information the switches control all routing, but far less efficiently because they can't see all the resources available to move traffic through the network. 
+
+_
 
 === OpenDaylight goal
 As a collaborative open source project, ODL's goal is to integrate open standards and open APIs to support a multitude of networking scenarios, accelerating adoption of SDN and Network Functions Virtualization (NFV). Closely related to SDN's virtualized networking services, NFV virtualizes core networking functions via software as opposed to using hardware, creating building blocks of network node functions that can chain together to create communication services. ODL's transparent SDN approach can meet your current networking needs and adapt to accommodate changes as application requirements and scope evolve. 
